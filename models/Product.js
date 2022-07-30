@@ -15,12 +15,12 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    prodcut_name:{
+    product_name:{
       type: DataTypes.STRING,
       allowNull: false,
     },
     price:{
-      type: DataTypes.DECIMAL[6,2],
+      type: DataTypes.DECIMAL(6,2),
       allowNull: false,
       validate:{
         isDecimal: true,  
