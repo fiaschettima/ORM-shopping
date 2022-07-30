@@ -10,10 +10,14 @@ Product.belongsTo(Category);
 Category.hasMany(Product);
 
 Product.belongsToMany(Tag,{
-  through: 'ProductTag'
+  through: {
+    model: ProductTag
+  }
 });
 Tag.belongsToMany(Product,{
-  through: 'ProductTag'
+  through: {
+    model: ProductTag
+  }
 })
 
 
