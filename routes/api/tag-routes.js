@@ -6,7 +6,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   try{
     const tags = await Tag.findAll(
-      {include: [{model: Product, through : ProductTag} ]}
+      {include: [{model: Product} ]}
     );
     res.status(200).json(tags)
   }catch(err){
@@ -26,11 +26,30 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // create a new tag
+router.post('/', async (req, res) => {
+  try{
+    const tagData = await Tag.create(req.body);
+    res.status(200).json(tagData);
+  }catch(err){
+    res.status(500).json(err)
+  }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
+  try{
+    if(req.body.tag_name){
+    const tagData = await Tag.update(
+      {tag_name: req.body.tag_name},
+      {where: {id: req.params.id}}
+    )
+    res.status(200).json(tagData)
+  }
+  else{
+    res.status(400).json({message: 'Please send a proper tag_name'});
+  }
+}catch(err){
+  res.status(500).json(err);
+}
   // update a tag's name by its `id` value
 });
 
