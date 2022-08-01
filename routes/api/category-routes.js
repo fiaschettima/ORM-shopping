@@ -13,8 +13,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// To Fix Later Sequelize statment is showing category Id twice in products,
-// sql statment causing this needed to be removed is `products`.`category_id` AS `products.category_id`,
+
 router.get('/:id', async (req, res) => {
   try{
     const categoryData = await Category.findByPk(req.params.id,{

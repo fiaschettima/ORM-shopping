@@ -1,8 +1,8 @@
 # ORM-shopping
 
-----------------Descrption<br>
+This project is a demonstration of a entirely server side application that is used to update and view database informaiton. This is all done through requests made to the server to get back information or give informaton.<br>
 
-[Link to Video Demo on Google Drive](-----------)
+[Link to Video Demo on Google Drive](https://drive.google.com/file/d/1qgPWurUzFA9Ne6-sA6yRqEFdgXKJaWYw/view)
 
 ---
 
@@ -10,7 +10,7 @@
 
 Here is a short demonstration of the apps functionality from start to finish:
 
-![StartUp Page](./Assets/images/demoGif.gif)
+![StartUp Page](./Assets//Images//fullDemoGif.gif)
 
 ---
 
@@ -19,21 +19,21 @@ Here is a short demonstration of the apps functionality from start to finish:
 To install the project in terminal run this command:
 
 ```bash
-    git clone git@github.com:fiaschettima/employeeTracker-Mod12.git
+    git clone git@github.com:fiaschettima/ORM-shopping.git
 
 ```
 The files will then be downloaded to the directory you ran the command in, Next run the following:
 ```bash
-    cd employeeTracker-Mod12.git
+    cd ORM-shopping
     npm i
 ```
 These commands will move you into the file, then install the npm packages the app requires for its functionality.
  Then you will need to create the initial database and seed it with starter data by doing the following:
- Navigate into Schema and copy all cody in schema, after pasted and rand also copy everything in seeds.sql
+
  ```bash
-   mysql -u root -p
-   <paste the schema here>
-   <paste seeds.sql here
+    mysql -u root -p
+    <copy and post contents of db/schems.sql here>
+    npm run seed
 ```   
 Now the initial database is created and the application will function as intended.
 
@@ -43,30 +43,34 @@ To use the application
 ```bash
     node server.js
 ```
-This will Initialize the application meaning begin the prompts to view employees, add,change ...
-When finished you can choose the final option in the Main list of "Exit" or press CTRL C.
+This will Initialize the application
 
 ---
+## Exmaple Responses
+
+![Many to Many relationship Example](./Assets/Images/catExRes.png)
+
+![Many to Many relationship Example](./Assets/Images/productsExRes.png)
+
+![Many to Many relationship Example](./Assets/Images/tagExRes.png)
+
 
 ## Code Snippets
 
-The displayed function is intended to add an employee with manager value as null if none is given. This is done because in the schema the default value is set to null if no value is given.
+The code snippet diaplyed bellow is an example of setting up a squelize many to many association. 
 
-![No Manager code Snippet](./Assets/Images/codeSnip.png)
+![Many to Many relationship Example](./Assets/Images/manyToMany.png)
 
 ---
-
-## Tech Stack
-
 **Client:** 
 
-**Server:** Node, Express, Inquirer, MySQL, figlet
+**Server:** Node, Express, Sequelize, MySQL, dotenv
 
 ---
 
 ## Lessons Learned
 
-This project provided the oppurtunity to gain practive and understanding of base SQL.
+This project provided the oppurtunity to use sequelize and manage different potential associations.
 
 ---
 
